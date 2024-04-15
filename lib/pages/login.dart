@@ -1,10 +1,6 @@
-import 'dart:convert';
-
-import 'package:flutter/cupertino.dart';
+import 'package:arms_core/arms_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_arms/core/arms.dart';
-import 'package:flutter_arms/core/router/navigator_provider.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutter_arms/config/app_route_config.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -14,7 +10,6 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  var text = "跳转Home";
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +17,8 @@ class _LoginState extends State<Login> {
       body: SafeArea(
         child: Column(
           children: [
-            _buildTest("$text", () async {
-              var res = await context.pushNamed("home");
-              setState(() {
-                text = "$res";
-              });
+            _buildTest("跳转Home", () async {
+               context.pushNamed(AppRouteConfig.home.name, queryParameters: {"key":"value"});
             })
           ],
         ),

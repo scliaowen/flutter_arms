@@ -1,5 +1,6 @@
+import 'package:arms_core/arms_core.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutter_arms/config/app_route_config.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -22,9 +23,9 @@ class _HomeState extends State<Home> {
         child: SafeArea(
           child: GestureDetector(
             onTap: () {
-              context.pop("result");
+              context.pushNamed(AppRouteConfig.login.name);
             },
-            child: Text("home：${args.keys.length}"),
+            child: Text("home：${args}"),
           ),
         ),
       ),

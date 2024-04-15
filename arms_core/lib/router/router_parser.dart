@@ -1,7 +1,8 @@
-import 'package:flutter_arms/config/arms_route.dart';
-import 'package:flutter_arms/config/arms_routes.dart';
-import 'package:flutter_arms/core/router/navigator_provider.dart';
+import 'package:arms_core/router/arms_route.dart';
+import 'package:arms_core/router/arms_route_config.dart';
 import 'package:go_router/go_router.dart';
+
+import 'navigator_provider.dart';
 
 /// Convert [ArmsRoute] to [GoRoute].
 class RouterParser {
@@ -13,8 +14,11 @@ class RouterParser {
     routes: routes,
   );
 
-  static void init() {
-    for (var armsRoute in ArmsRoutes.routes) {
+  static void init(ArmsRouteConfig routeConfig) {
+    if(routeConfig.initRoutes().isEmpty){
+      throw Exception("The route can not be empty!");
+    }
+    for (var armsRoute in routeConfig.initRoutes()) {
       routes.add(GoRoute(
         path: armsRoute.path,
         name: armsRoute.name,
