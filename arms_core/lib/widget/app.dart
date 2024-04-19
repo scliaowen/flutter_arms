@@ -1,30 +1,39 @@
-import 'package:arms_core/router/arms_route_config.dart';
-import 'package:arms_core/router/navigator_provider.dart';
+import 'package:arms_core/model/arms_model.dart';
 import 'package:arms_core/router/router_parser.dart';
+import 'package:arms_core/widget/arms_config.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-
+/// Which defines the basic app elements.
 class ArmsMaterialApp extends StatefulWidget {
-  final ArmsRouteConfig armsRouteConfig;
-  const ArmsMaterialApp({super.key, required this.armsRouteConfig});
+
+  final ArmsConfig armsConfig;
+
+  const ArmsMaterialApp({super.key, required this.armsConfig});
 
   @override
   State<ArmsMaterialApp> createState() => _ArmsMaterialAppState();
 }
 
 class _ArmsMaterialAppState extends State<ArmsMaterialApp> {
-  ArmsRouteConfig get _armsRouteConfig => widget.armsRouteConfig;
+  ArmsConfig get _armsConfig => widget.armsConfig;
+  final ArmsModel _armsModel = ArmsModel();
 
   @override
   void initState() {
-    RouterParser.init(_armsRouteConfig);
+    RouterParser.init(_armsConfig.routeConfig);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: RouterParser.router,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => _armsModel),
+      ],
+      child: MaterialApp.router(
+        routerConfig: RouterParser.router,
+      ),
     );
   }
 }
