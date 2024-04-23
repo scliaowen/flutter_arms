@@ -1,6 +1,8 @@
 import 'package:arms_core/arms_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_arms/config/app_route_config.dart';
+
+import '../router/app_route_config.dart';
+
 
 class Login extends StatefulWidget {
   const Login({super.key});
