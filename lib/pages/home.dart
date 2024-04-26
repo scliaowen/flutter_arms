@@ -1,4 +1,6 @@
 import 'package:arms_core/arms_core.dart';
+import 'package:arms_core/net/arms_net.dart';
+import 'package:arms_core/utils/arms_ui.dart';
 import 'package:flutter/material.dart';
 
 import '../router/app_route_config.dart';
@@ -25,6 +27,7 @@ class _HomeState extends State<Home> {
         child: SafeArea(
           child: GestureDetector(
             onTap: () {
+              // ArmsNet.instance.get("/s?wd=时间");
               context.pushNamed(AppRouteConfig.login.name);
             },
             child: Text("home：${args}"),

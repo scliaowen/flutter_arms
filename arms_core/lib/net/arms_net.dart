@@ -1,34 +1,27 @@
-import 'package:arms_core/net/adapter/arms_net_adapter.dart';
-import 'package:arms_core/net/request/arms_net_response.dart';
+import 'package:arms_core/net/arms_net_config.dart';
+import 'package:arms_core/net/arms_net_response.dart';
 
 class ArmsNet {
   ArmsNet._();
 
   static final ArmsNet _instance = ArmsNet._();
 
-  static get instance => _instance;
-  late ArmsNetAdapter netAdapter;
+  static ArmsNet get instance => _instance;
 
-  ArmsNet init(ArmsNetAdapter adapter) {
-    netAdapter = adapter;
+  late ArmsNetConfig _netConfig;
+
+  ArmsNet init(ArmsNetConfig netConfig) {
+   _netConfig = netConfig;
+   _netConfig.netAdapter.setOptions(_netConfig.options);
     return _instance;
   }
 
-  void config({
-    required String baseUrl,
-    int? connectTimeout,
-    int? receiveTimeout,
-    ArmsNetAdapter? adapter,
-  }) {
-    netAdapter.initialize(
-        baseUrl: baseUrl,
-        connectTimeout: connectTimeout,
-        receiveTimeout: receiveTimeout);
-  }
+
 
   Future get(String url,
       {Map<String, dynamic>? params, Map<String, dynamic>? heads}) async {
-     ArmsNetResponse response = await netAdapter.get(url, params: params, heads: heads);
+     ArmsNetResponse response = await _netConfig.netAdapter.get(url, params: params, heads: heads);
+     print(response);
 
      switch(response.code){
 

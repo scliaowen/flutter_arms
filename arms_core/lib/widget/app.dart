@@ -1,6 +1,6 @@
 import 'package:arms_core/model/arms_model.dart';
 import 'package:arms_core/router/router_parser.dart';
-import 'package:arms_core/widget/arms_config.dart';
+import 'package:arms_core/arms_config.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -27,12 +27,14 @@ class _ArmsMaterialAppState extends State<ArmsMaterialApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (context) => _armsModel),
-      ],
-      child: MaterialApp.router(
-        routerConfig: RouterParser.router,
+    return MaterialApp(
+      home: MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (context) => _armsModel),
+        ],
+        child: MaterialApp.router(
+          routerConfig: RouterParser.router,
+        ),
       ),
     );
   }

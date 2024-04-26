@@ -1,4 +1,5 @@
 import 'package:arms_core/arms_core.dart';
+import 'package:arms_core/utils/arms_ui.dart';
 import 'package:flutter/material.dart';
 
 import '../router/app_route_config.dart';
@@ -21,6 +22,9 @@ class _LoginState extends State<Login> {
           children: [
             _buildTest("跳转Home", () async {
                context.pushNamed(AppRouteConfig.home.name, queryParameters: {"key":"value"});
+            }),
+            _buildTest("showLoading", () async {
+             ArmsUI.showLoading();
             })
           ],
         ),

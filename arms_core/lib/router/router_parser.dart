@@ -1,15 +1,17 @@
+import 'package:arms_core/router/arms_navigator_observers.dart';
 import 'package:arms_core/router/arms_route.dart';
 import 'package:arms_core/router/arms_route_config.dart';
 import 'package:go_router/go_router.dart';
 
-import 'navigator_provider.dart';
+import 'arms_navigator_provider.dart';
 
 /// Convert [ArmsRoute] to [GoRoute].
 class RouterParser {
   static List<GoRoute> routes = [];
 
   static GoRouter router = GoRouter(
-    navigatorKey: NavigatorProvider.navigatorKey,
+    navigatorKey: ArmsNavigatorProvider.navigatorKey,
+    observers: [ArmsNavigatorObservers()],
     initialLocation: "/",
     routes: routes,
   );
