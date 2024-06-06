@@ -2,6 +2,7 @@ import 'package:arms_core/router/arms_route.dart';
 import 'package:arms_core/router/arms_route_config.dart';
 import 'package:flutter_arms/pages/home.dart';
 import 'package:flutter_arms/pages/login.dart';
+import 'package:flutter_arms/view/login_view.dart';
 
 /// The route configuration for the app.
 /// The 'routers' list specifies the top-level routes for the app.
@@ -25,7 +26,7 @@ class AppRouteConfig extends ArmsRouteConfig {
   static ArmsRoute login = ArmsRoute(
     path: "/login",
     name: "login",
-    widget: const Login(),
+    widget: const LoginView(),
   );
 
   /// 2. Add routes to the list

@@ -18,7 +18,7 @@ class ArmsUI {
   }
 
   static void hideLoading() {
-    if (_loadingOverlay != null) {
+    if (_loadingOverlay != null && overlayList.isNotEmpty) {
       overlayList.remove(_loadingOverlay);
       _loadingOverlay?.remove();
       _loadingOverlay = null;

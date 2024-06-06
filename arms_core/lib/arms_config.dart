@@ -23,7 +23,7 @@ class ArmsConfig {
   ArmsRouteConfig get routeConfig {
     if (_routeConfig == null) {
       throw Exception(
-          'RouterConfig is null!Please make sure it has been initialized.');
+          'RouterConfig is null! Please make sure it has been initialized.');
     }
     return _routeConfig!;
   }
