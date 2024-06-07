@@ -5,8 +5,6 @@ class ArmsNavigatorObservers extends NavigatorObserver{
   @override
   void didPop(Route route, Route? previousRoute) {
     super.didPop(route, previousRoute);
-    if(ArmsUI.overlayList.isNotEmpty){
-      ArmsUI.removeLastOverlay();
-    }
+    ArmsUI.removeOverlay();
   }
 }
