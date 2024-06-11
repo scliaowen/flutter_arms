@@ -1,6 +1,6 @@
 import 'package:arms_core/arms_core.dart';
 import 'package:arms_core/base/base_view_state.dart';
-import 'package:arms_core/widget/observe/observable_object.dart';
+import 'package:arms_core/widget/observe/observable_data.dart';
 import 'package:arms_core/widget/observe/observer_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_arms/model/login_model.dart';
@@ -56,9 +56,9 @@ class _LoginViewState extends BaseViewState<LoginView, LoginViewModel> {
             return Text("");
           },
         ),
-        ObserverWidget<LoginViewModel, ObservableObject<LoginModel>>(
+        ObserverWidget<LoginViewModel, ObservableData<LoginModel>>(
           viewModel: viewModel,
-          observeData: (context, model) => ObservableObject(value: model.bean),
+          observeData: (context, model) => ObservableData(value: model.bean),
           builder: (context, value, child) {
             debugPrint("ObserverWidget ObserverObject Selector");
 

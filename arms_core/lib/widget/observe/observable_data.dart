@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 /// Author:LiaoWen
 /// Date:2024/6/11
 
-class ObservableObject<T>{
+class ObservableData<T>{
   T? _value;
   int _version = 0;
   int _lastVersion = -1;
 
-  ObservableObject({Key? key, T? value}){
+  ObservableData({Key? key, T? value}){
     _value = value;
   }
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'observable_object.dart';
+import 'observable_data.dart';
 
 /// Description:
 /// Author:LiaoWen
@@ -43,7 +43,7 @@ class _ObserverWidgetState<VM extends ChangeNotifier, D>
         builder: widget.builder,
         selector: (_, viewModel) => widget.observeData(context, viewModel),
         shouldRebuild: (previous, next) {
-          if (next is ObservableObject) {
+          if (next is ObservableData) {
             return next.shouldRebuild();
           } else {
             return previous != next;
