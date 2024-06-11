@@ -1,7 +1,6 @@
 import 'package:arms_core/router/arms_route.dart';
 import 'package:arms_core/router/arms_route_config.dart';
 import 'package:flutter_arms/pages/home.dart';
-import 'package:flutter_arms/pages/login.dart';
 import 'package:flutter_arms/view/login_view.dart';
 
 /// The route configuration for the app.
